@@ -32,7 +32,6 @@ class TestTemplate(unittest.TestCase):
             result = is_leap_year(year)
             self.assertEqual(result, False)
 
-
     def test_divisible_by_4_and_not_by_100_is_leap(self):
         """
         All years divisible by 4 but not by 100 ARE leap years
@@ -41,6 +40,25 @@ class TestTemplate(unittest.TestCase):
         for year in years:
             result = is_leap_year(year)
             self.assertEqual(result, True)
+
+    def test_not_divisible_by_4(self):
+        """
+        All years not divisible by 4 but
+        """
+        years = [2017, 2018, 2019, 2001, 2011, 1995]
+        for year in years:
+            result = is_leap_year(year)
+            self.assertEqual(result, False)
+
+    def test_not_digits(self):
+        """
+        Validate not using digits
+        """
+        digits = ['1', '2', 'd', '%' ]
+        for digit in digits:
+            result = is_leap_year(digit)
+            self.assertEqual(result, False)
+
 
 if __name__ == '__main__':
     unittest.main()
